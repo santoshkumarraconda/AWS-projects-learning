@@ -1,0 +1,97 @@
+Session 1 - Day 1:
+
+https://us-east-1.student.classrooms.aws.training/class/3fWFEtYdmGyKHYNvGdCBAj
+
+http://pollynotes-pollynotesweb-1o79az4oitwex.s3-website-ap-southeast-1.amazonaws.com/
+
+https://aws.amazon.com/certification/certified-developer-associate/
+
+https://aws.amazon.com/about-aws/global-infrastructure/
+
+https://us-east-1.console.aws.amazon.com/billing/home#/account?AWS-Regions
+
+https://us-east-1.student.classrooms.aws.training/class/3fWFEtYdmGyKHYNvGdCBAj
+
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+---------------------------------------------------------------------------------------
+Session 1 - Day 2:
+https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/waiters.html
+
+arn:aws:iam::320080516089:user/developer1 (pwd:@na)
+
+nilay.das@rpsconsulting.in
+--------------------------------------------------------------------------------------
+Lab 1 :
+
+- aws configure list-profiles
+- aws sts get-caller-identity --profile developer
+- aws s3 ls --profile developer
+- set bucketToDelete=<BucketNameToDelete>
+- aws s3 rb s3://%bucketToDelete% --profile developer
+- aws s3 rb s3://%bucketToDelete% --profile developer --debug
+- aws iam list-policies --output text --query "Policies[?PolicyName == `S3-Delete-Bucket-Policy`].Arn" --profile developer
+- set policyArn=<ARN-Place-Holder>
+- aws iam get-policy-version --policy-arn %policyArn% --version-id v1 --profile developer
+- aws iam attach-role-policy --policy-arn %policyArn% --role-name notes-application-role --profile developer
+- aws iam list-attached-role-policies --role-name notes-application-role --profile developer
+
+
+-------------------------------------------------------------------------------
+Session 2 day 1:
+Test:
+https://app.mymapit.in/code4/tiny/rL00m3
+https://www.sanfoundry.com/cloud-computing-aws-interview-questions-answers/
+
+------------------------------------------------------------------------
+Day 2 :
+
+If any technical issues with RPS Cloud labs, please raise a help-desk ticket (SLA) at https://techsupport.rpsconsulting.in/. or RPS TechSupportcustomer support platform
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.client.run-application-java.html
+
+Lab 3:
+
+aws dynamodb create-table ^
+  --table-name Notes ^
+  --attribute-definitions AttributeName=UserId,AttributeType=S AttributeName=NoteId,AttributeType=N ^
+  --key-schema AttributeName=UserId,KeyType=HASH AttributeName=NoteId,KeyType=RANGE ^
+  --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
+
+aws dynamodb wait table-exists --table-name Notes
+
+aws dynamodb describe-table --table-name Notes | findstr TableStatus
+
+mvn -q exec:java -Dexec.mainClass="dev.labs.dynamodb.notesQuery"
+
+Test
+https://app.mymapit.in/code4/tiny/iH1L8y
+
+-------------------------------------------------------------------
+Session 3 day 1:
+
+https://explore.skillbuilder.aws/learn
+https://aws.amazon.com/certification/certified-developer-associate/?c=sec&sec=resources
+
+https://pages.awscloud.com/TRAINCERT-APAC-alwayson-OE-Get-Certified-DVA-IN-20221223-reg-event.html?trk=c5ce754a-10fb-45e1-b3d4-906c5572dcc2&sc_channel=em
+
+https://explore.skillbuilder.aws/learn/course/internal/view/elearning/436/dive-deep-into-amazon-connect-reporting-and-metrics
+
+Day 2:
+https://app.mymapit.in/code4/tiny/zeRYjS
+
+https://au1.qualtrics.com/jfe/form/SV_cAAOvXJ4f0ffSLj?atpclassid=114718&Q_Language=EN		
+
+https://app.mymapit.in/code4/tiny/8PBmtj
+
+https://www.linkedin.com/in/nilay-das-b0b15413a/
+
+-----------------------------------------------------------------------
+S3 lab:
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3.html
+https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/HeadBucketResponse.html
+https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/waiters/S3Waiter.html
+https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/CreateBucketRequest.Builder.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/ObjectMetadata.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/PutObjectRequest.html
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-website.html
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-policy.html	
